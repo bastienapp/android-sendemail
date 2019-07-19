@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 User user = new User("bastien@wildcodeschool.fr", "tacostacos");
                 String newPassword = generateRandomString();
 
-                // TODO : savec modified user into database
+                // TODO : save modified user into database
                 user.setPassword(newPassword);
 
                 sendMail(user, new Consumer<Boolean>() {

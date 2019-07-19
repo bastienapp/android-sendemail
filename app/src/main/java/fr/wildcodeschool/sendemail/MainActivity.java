@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendMail(User user, final Consumer<Boolean> listener) {
 
+        // TODO : remove this comment from release
         /*if (BuildConfig.DEBUG) {
             // if the application is in debug variant, no email is sent
             return;

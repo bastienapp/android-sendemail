@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SendEmail</string>
+    <string name="email_from">Wild Code School</string>
+    <string name="email_suject">[WCS] This is your new password !</string>
+    <string name="html_email">
+        <![CDATA[
+        <!DOCTYPE html>
+        <html>
+        <body>
+        Your new password is {password} !
+        </body>
+        </html>
+        ]]>
+    </string>
+</resources>

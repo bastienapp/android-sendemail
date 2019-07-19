@@ -49,7 +49,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 User user = new User("bastien@wildcodeschool.fr", "tacostacos");
-                sendMail(user, generateRandomString(), new Consumer<Boolean>() {
+                String newPassword = generateRandomString();
+
+                // TODO : savec modified user into database
+                user.setPassword(newPassword);
+
+                sendMail(user, new Consumer<Boolean>() {
                     @Override
                     public void accept(Boolean success) {
                         Toast.makeText(context, "Success : " + success, Toast.LENGTH_LONG).show();
@@ -59,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void sendMail(User user, String password, final Consumer<Boolean> listener) {
+    public void sendMail(User user, final Consumer<Boolean> listener) {
 
         /*if (BuildConfig.DEBUG) {
             // if the application is in debug variant, no email is sent
@@ -83,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             message.put("To", tos);
             message.put("Subject", context.getString(R.string.email_suject));
             String htmlContent = context.getString(R.string.html_email)
-                    .replace("{password}", password);
+                    .replace("{password}", user.getPassword());
             message.put("HTMLPart", htmlContent);
 
             messages.put(message);
